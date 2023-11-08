@@ -1,1 +1,1 @@
-# edgehub-protocol
+ edgehub-protocol
