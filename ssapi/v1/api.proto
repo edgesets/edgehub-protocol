@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package edgehub.protocol.ssapi.v1;
+
+import "shared/shared.proto";
+
+option go_package = "github.com/edgesets/edgehub-protocol/ssapi/v1;ssapiv1";
+
+
+message SurveyRequest {
+  string id = 1;
+  uint32 expect_replies = 2 [json_name = "expect_replies"]; // first, all
+  uint32 timeout = 3 [json_name = "timeout"];
+  string topic = 4;
+  string command = 5;
+  string content_type = 6 [json_name = "content_type"];
+  string payload_text = 7 [json_name = "payload_text"];
+  bytes payload_bytes = 8 [json_name = "payload_bytes"];
+}
+
+message SurveyReply {
+  message Result {
+    shared.Error error = 1;
+    shared.Metadata metadata = 2;
+    string content_type = 5 [json_name = "content_type"];
+    string payload_text = 6 [json_name = "payload_text"];
+    bytes payload_bytes = 7 [json_name = "payload_bytes"];
+  }
+  string id = 1;
+  shared.Error error = 2;
+  string command = 3;
+  repeated Result results = 4;
+}
+
+message PublishRequest {
+  string topic = 1 [json_name = "topic"];
+  bool retain = 2;
+  int32 qos = 3;
+  string type = 4;
+  string content_type = 5 [json_name = "content_type"];
+  string payload_text = 6 [json_name = "payload_text"];
+  bytes payload_bytes = 7 [json_name = "payload_bytes"];
+}
+
+message PublishReply {
+  shared.Error error = 1;
+}
+
+
+message SubscribeRequest {
+  string client = 1;
+  string filter = 2 ;
+  int32 qos = 3;
+  string broker = 4;
+}
+
+message SubscribeReply {
+  shared.Error error = 1;
+}
+
+message UnsubscribeRequest {
+  string client = 1;
+  string filter = 2 ;
+  string broker = 3;
+}
+
+message UnsubscribeReply {
+  shared.Error error = 1;
+}
+
+message DisconnectRequest {
+  string client = 1;
+  int32 code = 2;
+  string reason = 3;
+}
+
+message DisconnectReply {
+  shared.Error error = 1;
+}

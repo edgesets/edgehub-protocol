@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.3.0
 // - protoc             v3.21.1
-// source: proxy/proxy.proto
+// source: proxy/v1/proxy.proto
 
-package proxypb
+package proxyv1
 
 import (
 	context "context"
@@ -19,12 +19,12 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Proxy_Connect_FullMethodName      = "/loopify.proxy.Proxy/Connect"
-	Proxy_Subscribe_FullMethodName    = "/loopify.proxy.Proxy/Subscribe"
-	Proxy_Subscribed_FullMethodName   = "/loopify.proxy.Proxy/Subscribed"
-	Proxy_Unsubscribed_FullMethodName = "/loopify.proxy.Proxy/Unsubscribed"
-	Proxy_RPC_FullMethodName          = "/loopify.proxy.Proxy/RPC"
-	Proxy_Refresh_FullMethodName      = "/loopify.proxy.Proxy/Refresh"
+	Proxy_Connect_FullMethodName      = "/edgehub.protocol.proxy.v1.Proxy/Connect"
+	Proxy_Subscribe_FullMethodName    = "/edgehub.protocol.proxy.v1.Proxy/Subscribe"
+	Proxy_Subscribed_FullMethodName   = "/edgehub.protocol.proxy.v1.Proxy/Subscribed"
+	Proxy_Unsubscribed_FullMethodName = "/edgehub.protocol.proxy.v1.Proxy/Unsubscribed"
+	Proxy_RPC_FullMethodName          = "/edgehub.protocol.proxy.v1.Proxy/RPC"
+	Proxy_Refresh_FullMethodName      = "/edgehub.protocol.proxy.v1.Proxy/Refresh"
 )
 
 // ProxyClient is the client API for Proxy service.
@@ -281,7 +281,7 @@ func _Proxy_Refresh_Handler(srv interface{}, ctx context.Context, dec func(inter
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Proxy_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "loopify.proxy.Proxy",
+	ServiceName: "edgehub.protocol.proxy.v1.Proxy",
 	HandlerType: (*ProxyServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -310,5 +310,5 @@ var Proxy_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proxy/proxy.proto",
+	Metadata: "proxy/v1/proxy.proto",
 }

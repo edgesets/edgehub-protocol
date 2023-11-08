@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package edgehub.protocol.shared;
+
+option go_package = "github.com/edgesets/edgehub-protocol/shared;sharedpb";
+
+enum ContentType {
+  // 未定义
+  UNDEFINED = 0;
+  // JSON
+  JSON = 1 ;
+  // Protobuf
+  PROTOBUF = 2;
+}
+
+
+message Metadata {
+  string topic = 1;
+  string client = 2;
+  string user = 3;
+  string session = 4;
+  string broker = 5;
+  map<string, string> tags = 6;
+}
+
+message Error {
+  int32 code = 1;
+  string message = 2;
+  map<string, string> metadata = 3;
+}

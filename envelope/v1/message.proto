@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package edgehub.protocol.envelope.v1;
+
+import "shared/shared.proto";
+
+option go_package = "github.com/weflux/loopify/protocol/loopify/v1;loopify";
+
+message Message {
+  string id = 1 [json_name = "id"];
+  map<string, string> headers = 3;
+  oneof body {
+    Request request = 4 [json_name = "request"];
+    Reply reply = 5 [json_name = "reply"];
+    Publication publication = 6 [json_name = "publication"];
+    shared.Error error = 10 [json_name = "error"];
+  }
+}
+
+message Request {
+  string command = 1;
+  string content_type = 2 [json_name = "content_type"];
+  string payload_text = 3 [json_name = "payload_text"];
+  bytes payload_bytes = 4 [json_name = "payload_bytes"];
+}
+
+message Reply {
+  shared.Error error = 1 [json_name = "error"];
+  shared.Metadata metadata = 2;
+  string command = 3;
+  string content_type = 4 [json_name = "content_type"];
+  string payload_text = 5 [json_name = "payload_text"];
+  bytes payload_bytes = 6 [json_name = "payload_bytes"];
+}
+
+message SubRefresh {
+
+}
+
+message SubRefreshReply {
+
+}
+
+
+
+message Publication {
+  string type = 1;
+  string content_type = 2 [json_name = "content_type"];
+  string payload_text = 3 [json_name = "payload_text"];
+  bytes payload_bytes = 4 [json_name = "payload_bytes"];
+}
