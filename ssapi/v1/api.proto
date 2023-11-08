@@ -3,10 +3,46 @@ syntax = "proto3";
 package edgehub.protocol.ssapi.v1;
 
 import "shared/shared.proto";
+import "google/api/annotations.proto";
 
 option go_package = "github.com/edgesets/edgehub-protocol/ssapi/v1;ssapiv1";
 
 
+service ServerSideApi {
+  rpc Publish(PublishRequest) returns (PublishReply) {
+    option (google.api.http) = {
+      post: "/api/publish/json"
+      body: "*"
+    };
+  }
+  rpc Survey(SurveyRequest) returns (SurveyReply) {
+    option (google.api.http) = {
+      post: "/api/survey/json"
+      body: "*"
+    };
+  }
+
+  rpc Subscribe(SubscribeRequest) returns (SubscribeReply) {
+    option (google.api.http) = {
+      post: "/api/subscribe/json"
+      body: "*"
+    };
+  }
+
+  rpc Unsubscribe(UnsubscribeRequest) returns (UnsubscribeReply) {
+    option (google.api.http) = {
+      post: "/api/unsubscribe/json"
+      body: "*"
+    };
+  }
+
+  rpc Disconnect(DisconnectRequest) returns (DisconnectReply) {
+    option (google.api.http) = {
+      post: "/api/disconnect/json"
+      body: "*"
+    };
+  }
+}
 message SurveyRequest {
   string id = 1;
   uint32 expect_replies = 2 [json_name = "expect_replies"]; // first, all

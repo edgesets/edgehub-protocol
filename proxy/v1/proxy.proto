@@ -2,16 +2,10 @@ syntax = "proto3";
 
 package edgehub.protocol.proxy.v1;
 
+import "shared/shared.proto";
+
 option go_package = "github.com/edgesets/edgehub-protocol/protobuf/proxy/v1;proxyv1";
 
-message Metadata {
-  string topic = 1;
-  string client = 2;
-  string user = 3;
-  string session = 4;
-  string broker = 5;
-  map<string, string> tags = 6;
-}
 
 service Proxy {
   // 连接认证
@@ -53,7 +47,7 @@ message ConnectRequest {
   }
 
   string id = 1;
-  Metadata metadata = 2;
+  shared.Metadata metadata = 2;
   Payload payload = 3;
 }
 
@@ -90,7 +84,7 @@ message UnsubscribedReply {
 
 message RPCRequest {
   string id = 1;
-  Metadata metadata = 2;
+  shared.Metadata metadata = 2;
   string command = 3;
   string content_type = 4;
   string payload_text = 5;
@@ -101,7 +95,7 @@ message RPCRequest {
 message RPCReply {
   string id = 1;
   Error error = 2;
-  Metadata metadata = 3;
+  shared.Metadata metadata = 3;
   string content_type = 4;
   string payload_text = 5;
   bytes payload_bytes = 6;
