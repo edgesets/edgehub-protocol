@@ -59,6 +59,7 @@ message SubscribeRequest {
   string topic = 1;
   string client = 2;
   string user = 3;
+  int32 write = 4;
 }
 
 message SubscribeReply {
