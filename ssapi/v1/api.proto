@@ -48,7 +48,7 @@ message SurveyRequest {
   uint32 expect_replies = 2 [json_name = "expect_replies"]; // first, all
   uint32 timeout = 3 [json_name = "timeout"];
   string topic = 4;
-  string type_id= 5;
+  string route= 5;
   string content_type = 6 [json_name = "content_type"];
   string payload_text = 7 [json_name = "payload_text"];
   bytes payload_bytes = 8 [json_name = "payload_bytes"];
@@ -64,7 +64,7 @@ message SurveyReply {
   }
   string id = 1;
   shared.Error error = 2;
-  string type_id = 3;
+  string route = 3;
   repeated Result results = 4;
 }
 
@@ -72,7 +72,7 @@ message PublishRequest {
   string topic = 1 [json_name = "topic"];
   bool retain = 2;
   int32 qos = 3;
-  string type_id = 4;
+  string route = 4;
   string content_type = 5 [json_name = "content_type"];
   string payload_text = 6 [json_name = "payload_text"];
   bytes payload_bytes = 7 [json_name = "payload_bytes"];

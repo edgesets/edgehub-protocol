@@ -18,7 +18,7 @@ message Message {
 }
 
 message Request {
-  string type_id = 1;
+  string route = 1;
   string content_type = 2 [json_name = "content_type"];
   string payload_text = 3 [json_name = "payload_text"];
   bytes payload_bytes = 4 [json_name = "payload_bytes"];
@@ -27,7 +27,7 @@ message Request {
 message Reply {
   shared.Error error = 1 [json_name = "error"];
   shared.Metadata metadata = 2;
-  string type_id = 3;
+  string route = 3;
   string content_type = 4 [json_name = "content_type"];
   string payload_text = 5 [json_name = "payload_text"];
   bytes payload_bytes = 6 [json_name = "payload_bytes"];
@@ -44,7 +44,7 @@ message SubRefreshReply {
 
 
 message Publication {
-  string type_id = 1;
+  string route = 1;
   string content_type = 2 [json_name = "content_type"];
   string payload_text = 3 [json_name = "payload_text"];
   bytes payload_bytes = 4 [json_name = "payload_bytes"];
