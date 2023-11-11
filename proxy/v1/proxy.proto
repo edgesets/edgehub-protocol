@@ -86,7 +86,7 @@ message UnsubscribedReply {
 message RPCRequest {
   string id = 1;
   shared.Metadata metadata = 2;
-  string command = 3;
+  string type_id = 3;
   string content_type = 4;
   string payload_text = 5;
   bytes payload_bytes = 6;
@@ -97,9 +97,10 @@ message RPCReply {
   string id = 1;
   Error error = 2;
   shared.Metadata metadata = 3;
-  string content_type = 4;
-  string payload_text = 5;
-  bytes payload_bytes = 6;
+  string type_id = 4;
+  string content_type = 5;
+  string payload_text = 6;
+  bytes payload_bytes = 7;
 }
 
 message PublishRequest {
