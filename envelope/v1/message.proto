@@ -4,7 +4,7 @@ package edgehub.protocol.envelope.v1;
 
 import "shared/shared.proto";
 
-option go_package = "github.com/weflux/loopify/protocol/loopify/v1;loopify";
+option go_package = "github.com/edgesets/edgehub-protocol/envelope/v1;envelopev1";
 
 message Message {
   string id = 1 [json_name = "id"];
