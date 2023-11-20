@@ -45,10 +45,10 @@ service ServerSideApi {
 }
 message SurveyRequest {
   string id = 1;
-  uint32 expect_replies = 2 [json_name = "expect_replies"]; // first, all
+  uint32 wait_replies = 2 [json_name = "wait_replies"]; // first, all
   uint32 timeout = 3 [json_name = "timeout"];
   string topic = 4;
-  string route= 5;
+  string route = 5;
   string content_type = 6 [json_name = "content_type"];
   string payload_text = 7 [json_name = "payload_text"];
   bytes payload_bytes = 8 [json_name = "payload_bytes"];

@@ -25,22 +25,12 @@ message Request {
 }
 
 message Reply {
-  shared.Error error = 1 [json_name = "error"];
-  shared.Metadata metadata = 2;
-  string route = 3;
+  string route = 1;
+  shared.Error error = 2 [json_name = "error"];
   string content_type = 4 [json_name = "content_type"];
   string payload_text = 5 [json_name = "payload_text"];
   bytes payload_bytes = 6 [json_name = "payload_bytes"];
 }
-
-message SubRefresh {
-
-}
-
-message SubRefreshReply {
-
-}
-
 
 
 message Publication {
