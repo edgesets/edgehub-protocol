@@ -19,9 +19,10 @@ message Message {
 
 message Request {
   string route = 1;
-  string content_type = 2 [json_name = "content_type"];
-  string payload_text = 3 [json_name = "payload_text"];
-  bytes payload_bytes = 4 [json_name = "payload_bytes"];
+  string reply_topic = 2;
+  string content_type = 3 [json_name = "content_type"];
+  string payload_text = 4 [json_name = "payload_text"];
+  bytes payload_bytes = 5 [json_name = "payload_bytes"];
 }
 
 message Reply {
